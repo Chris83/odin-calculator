@@ -17,7 +17,7 @@ body {
    flex-wrap: wrap;
    align-items: stretch;
    border: 1px solid #000;
-   border-radius: 15px;
+   border-radius: 18px;
 
    background-color: #666;
 }
@@ -27,6 +27,7 @@ body {
    min-height: 120px;
    max-height: 120px;
    border: 1px solid #000;
+   border-radius: 15px 15px 0 0;
 
    text-align: right;
    vertical-align: bottom;
@@ -59,4 +60,12 @@ body {
 
 .btn:active {
    background-color: #1E90FF;
+}
+
+.btm-r {
+   border-radius: 0 0 15px 0;
+}
+
+.btm-l {
+   border-radius: 0 0 0 15px;;
 }
