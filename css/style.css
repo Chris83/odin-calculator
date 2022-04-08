@@ -52,14 +52,15 @@ body {
    line-height: 120px;
 
    background-color: #FFF;
-   transition: background-color 0.5s linear; 
-   -moz-transition: background-color 0.5s linear;  
-   -webkit-transition: background-color 0.5s linear; 
-   -ms-transition: background-color 0.5s linear;
+   transition: background-color 0.25s linear; 
+   -moz-transition: background-color 0.25s linear;  
+   -webkit-transition: background-color 0.25s linear; 
+   -ms-transition: background-color 0.25s linear;
 }
 
-.btn:active {
-   background-color: #1E90FF;
+.btn:active,
+.btn.active {
+   background-color: #26A65B;
 }
 
 .btm-r {
@@ -68,4 +69,14 @@ body {
 
 .btm-l {
    border-radius: 0 0 0 15px;;
+}
+
+#eql-btn {
+   min-width: 242px;
+   max-width: 242px;
+}
+
+#eql-btn:active,
+#eql.active{
+   background-color: #FFB61E;
 }
