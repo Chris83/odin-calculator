@@ -9,7 +9,15 @@ function NumberClick(e) {
    } else {
       screen.innerText = screen.innerText + e.innerText;
    }
-
+}
+function DecimalClick(){
+   const screen = document.querySelector(".screen");
+   if(freshInput) {
+      screen.innerText = "0.";
+   } else {
+      screen.innerText += ".";
+   }
+   freshInput = false;
 }
 
 function ClearClick(){
