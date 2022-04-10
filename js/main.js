@@ -38,6 +38,7 @@ function OperatorClick(e){
    }
    equation[1] = e.innerText;
    screen.innerText = equation[0];
+   if(screen.innerText == "Nope, try again") equation.length = 0;
    freshInput = true;
 }
 
@@ -46,12 +47,13 @@ function EqualsClick(){
 
    equation[0] = ClampDigits(Operate(equation[0], equation[1], +screen.innerText));
    if(isNaN(equation[0])) {
+      if(equation[0] == "Nope, try again") screen.innerText = equation[0];
       equation.length = 0;
    } else {
       screen.innerText = equation[0];
       equation.length = 0;
-      freshInput = true;
    }
+   freshInput = true;
 }
 
 function Add(a, b) {
@@ -74,10 +76,11 @@ function Operate(a, operator, b) {
    if(operator == "+") return Add(a, b);
    if(operator == "-") return Subtract(a, b);
    if(operator == "×") return Multiply(a, b);
-   if(operator == "÷") return Divide(a, b);
+   if(operator == "÷"){ return (b == 0) ? "Nope, try again" : Divide(a, b);}
 }
 
 function ClampDigits(number){
+   if(number == "Nope, try again") return number;
    let digits = (number + '').split('.');
    if(digits[0].length > 16){
       ClearClick();
