@@ -12,6 +12,7 @@ function NumberClick(e) {
 }
 function DecimalClick(){
    const screen = document.querySelector(".screen");
+   if(screen.innerText.includes('.')) return;
    if(freshInput) {
       screen.innerText = "0.";
    } else {
