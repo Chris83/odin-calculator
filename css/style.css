@@ -80,3 +80,8 @@ body {
 #eql.active{
    background-color: #FFB61E;
 }
+
+#cancel-btn:active,
+#cance-btn.active{
+   background-color: #F62459;
+}

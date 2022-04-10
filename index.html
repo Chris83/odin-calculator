@@ -11,25 +11,25 @@
       <div class="container">
          <div class="calculator">
             <div class="screen"></div>
-            <div class="btn" onclick="ClearClick()">C</div>
+            <div class="btn" id="cancel-btn" onclick="ClearClick()">C</div>
             <div class="btn"></div>
             <div class="btn"></div>
-            <div class="btn">&divide;</div>
+            <div class="btn" onclick="OperatorClick(this)">&divide;</div>
             <div class="btn" onclick="NumberClick(this)">7</div>
             <div class="btn" onclick="NumberClick(this)">8</div>
             <div class="btn" onclick="NumberClick(this)">9</div>
-            <div class="btn">&times;</div>
+            <div class="btn" onclick="OperatorClick(this)">&times;</div>
             <div class="btn" onclick="NumberClick(this)">4</div>
             <div class="btn" onclick="NumberClick(this)">5</div>
             <div class="btn" onclick="NumberClick(this)">6</div>
-            <div class="btn">+</div>
+            <div class="btn" onclick="OperatorClick(this)">+</div>
             <div class="btn" onclick="NumberClick(this)">1</div>
             <div class="btn" onclick="NumberClick(this)">2</div>
             <div class="btn" onclick="NumberClick(this)">3</div>
-            <div class="btn">-</div>
+            <div class="btn" onclick="OperatorClick(this)">-</div>
             <div class="btn btm-l">.</div>
             <div class="btn" onclick="NumberClick(this)">0</div>
-            <div class="btn btm-r" id="eql-btn">=</div>
+            <div class="btn btm-r" id="eql-btn" onclick="EqualsClick()">=</div>
          </div>
       </div>
    </body>
