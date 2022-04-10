@@ -74,8 +74,6 @@ function ClampDigits(number){
       ClearClick();
       return "ERROR";
    } else if (digits[1] != undefined && ((digits[0].length + digits[1].length) > 15)){
-      console.log((digits[0].length + digits[1].length));
-      console.log(number)
       return Math.round(number*10**(16 - digits[0].length))/10**(16 - digits[0].length);
    }
    return +number;
