@@ -90,6 +90,8 @@ body {
 }
 
 #cancel-btn:active,
-#cance-btn.active{
+#cancle-btn.active,
+#backspace-btn:active,
+#backspace-btn.active {
    background-color: #F62459;
 }
