@@ -56,6 +56,12 @@ function EqualsClick(){
    freshInput = true;
 }
 
+function BackspaceClick(){
+   const screen = document.querySelector(".screen");
+   if(screen.innerText == '') return;
+   screen.innerText = screen.innerText.slice(0, -1);
+}
+
 function Add(a, b) {
    return +a + +b;
 }
