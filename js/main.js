@@ -30,6 +30,7 @@ function ClearClick(){
 
 function OperatorClick(e){
    const screen = document.querySelector(".screen");
+   if(screen.innerText == '') return;
    if(equation[0] == undefined) { 
       equation[0] = +screen.innerText;
       equation[1] = e.innerText;
