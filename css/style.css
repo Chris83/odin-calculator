@@ -63,12 +63,20 @@ body {
    background-color: #26A65B;
 }
 
+.btn.operator {
+   background-color: #CCC;
+}
+.btn.operator:active,
+.btn.operator.active {
+   background-color: #22A7F0;
+}
+
 .btm-r {
    border-radius: 0 0 15px 0;
 }
 
 .btm-l {
-   border-radius: 0 0 0 15px;;
+   border-radius: 0 0 0 15px;
 }
 
 #eql-btn {
