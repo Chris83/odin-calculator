@@ -1,8 +1,19 @@
 const equation = [];
 var freshInput = true;
 
-function NumberClick(e) {
+function NumberClick(e, key=null) {
    const screen = document.querySelector(".screen");
+   // handle a keypress
+   if(key != null){
+      if(freshInput) {
+         freshInput = false;
+         screen.innerText = key;
+      } else {
+         screen.innerText = screen.innerText + key;
+      }
+      return;
+   }
+   // handle a click
    if(freshInput) {
       freshInput = false;
       screen.innerText = e.innerText;
@@ -28,9 +39,27 @@ function ClearClick(){
    freshInput = true;
 }
 
-function OperatorClick(e){
+function OperatorClick(e, key=null){
    const screen = document.querySelector(".screen");
    if(screen.innerText == '') return;
+
+   // handle keypress
+   if(key != null){
+      if(equation[0] == undefined) { 
+         equation[0] = +screen.innerText;
+         equation[1] = key;
+      } else {
+         equation[0] = ClampDigits(Operate(equation[0], equation[1], +screen.innerText));
+      }
+      equation[1] = key;
+      screen.innerText = equation[0];
+      if(screen.innerText == "Nope, try again") equation.length = 0;
+      freshInput = true;
+
+      return
+   }
+
+   // handle click
    if(equation[0] == undefined) { 
       equation[0] = +screen.innerText;
       equation[1] = e.innerText;
@@ -97,3 +126,60 @@ function ClampDigits(number){
    }
    return +number;
 }
+
+// keyboard support
+var buttons = {};
+var repeated;
+
+function InitKeyboardSupport(){
+   const btns = document.querySelectorAll(".btn");
+
+   console.log(btns);
+}
+
+InitKeyboardSupport();
+
+document.addEventListener('keydown', function(e) {
+   if (e.repeat != undefined) {
+      repeated = !e.repeat;
+    }
+    if (!repeated) return;
+    repeated = false;
+
+    // number presses
+    const numbers = new RegExp('^[0-9]$');
+    if(numbers.test(e.key) || e.key == '.'){
+       NumberClick(e, e.key);
+       return;
+    }
+
+    switch(e.key){
+       case "Backspace":
+          BackspaceClick();
+          break;
+      case "Enter":
+         EqualsClick();
+         break;
+      case "Delete":
+         ClearClick();
+         break;
+      case "+":
+      case "-" :
+         OperatorClick(e, e.key);
+         break;
+      case "*" :
+         OperatorClick(e, "×");
+         break;
+      case "/" :
+         OperatorClick(e, "÷");
+         break;
+      default:
+         return;
+    }
+});
+
+document.addEventListener('keyup', function(e) {
+   repeated = true;
+
+   console.log(e.key);
+});
