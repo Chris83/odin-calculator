@@ -134,7 +134,16 @@ var repeated;
 function InitKeyboardSupport(){
    const btns = document.querySelectorAll(".btn");
 
-   console.log(btns);
+   for(let i=0; i<btns.length; i++){
+      if(btns[i].innerText == "C") buttons["Delete"] = btns[i];
+      if(btns[i].innerText == "←") buttons["Backspace"] = btns[i];
+      if(btns[i].innerText == "=") buttons["Enter"] = btns[i];
+      if(btns[i].innerText == "×") {
+         buttons["×"] = btns[i];
+         buttons["*"] = btns[i];
+      }
+      buttons[btns[i].innerText] = btns[i];
+   }
 }
 
 InitKeyboardSupport();
@@ -150,28 +159,37 @@ document.addEventListener('keydown', function(e) {
     const numbers = new RegExp('^[0-9]$');
     if(numbers.test(e.key) || e.key == '.'){
        NumberClick(e, e.key);
-       return;
+       buttons[e.key].classList.add("active");
     }
 
     switch(e.key){
        case "Backspace":
           BackspaceClick();
+          buttons["Backspace"].classList.add("active");
           break;
       case "Enter":
          EqualsClick();
+         buttons["Enter"].classList.add("active");
          break;
       case "Delete":
          ClearClick();
+         buttons["Delete"].classList.add("active");
          break;
       case "+":
-      case "-" :
          OperatorClick(e, e.key);
+         buttons[e.key].classList.add("active");
          break;
-      case "*" :
+      case "-":
+         OperatorClick(e, e.key);
+         buttons[e.key].classList.add("active");
+         break;
+      case "*":
          OperatorClick(e, "×");
+         buttons["×"].classList.add("active");
          break;
-      case "/" :
+      case "/":
          OperatorClick(e, "÷");
+         buttons[e.key].classList.add("active");
          break;
       default:
          return;
@@ -181,5 +199,26 @@ document.addEventListener('keydown', function(e) {
 document.addEventListener('keyup', function(e) {
    repeated = true;
 
-   console.log(e.key);
+   // number presses
+   const numbers = new RegExp('^[0-9]$');
+   if(numbers.test(e.key) || e.key == '.'){
+      buttons[e.key].classList.remove("active");
+   }
+
+   switch(e.key){
+      case "Backspace":
+         buttons["Backspace"].classList.remove("active");
+         break;
+      case "Delete":
+         buttons["Delete"].classList.remove("active");
+         break;
+      case "Enter":
+         buttons["Enter"].classList.remove("active");
+         break;
+      case "×":
+         buttons["×"].classList.remove("active");
+         break;
+      default:
+         break;
+   }
 });

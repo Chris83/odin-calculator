@@ -58,16 +58,31 @@ body {
    -ms-transition: background-color 0.25s linear;
 }
 
-.btn:active,
-.btn.active {
+.number-btn:active,
+.number-btn.active {
    background-color: #26A65B;
 }
 
-.btn.operator {
+.eql-btn:active,
+.eql-btn.active{
+   background-color: #FFB61E;
+}
+
+.cancel-btn:active,
+.cancel-btn.active,
+.backspace-btn:active,
+.backspace-btn.active {
+   background-color: #F62459 !important;
+}
+
+.operator-btn,
+.cancel-btn,
+.backspace-btn,
+.eql-btn {
    background-color: #CCC;
 }
-.btn.operator:active,
-.btn.operator.active {
+.operator-btn:active,
+.operator-btn.active {
    background-color: #22A7F0;
 }
 
@@ -82,16 +97,4 @@ body {
 #eql-btn {
    min-width: 242px;
    max-width: 242px;
-}
-
-#eql-btn:active,
-#eql.active{
-   background-color: #FFB61E;
-}
-
-#cancel-btn:active,
-#cancle-btn.active,
-#backspace-btn:active,
-#backspace-btn.active {
-   background-color: #F62459;
 }
