@@ -92,6 +92,16 @@ function BackspaceClick(){
    screen.innerText = screen.innerText.slice(0, -1);
 }
 
+function ToggleNegative(){
+   const screen = document.querySelector(".screen");
+   if(screen.innerText[0] == "-"){
+      screen.innerText = screen.innerText.substring(1);
+   } else {
+      screen.innerText = "-" + screen.innerText;
+   }
+   freshInput = false;
+}
+
 function Add(a, b) {
    return +a + +b;
 }

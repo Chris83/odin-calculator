@@ -58,6 +58,10 @@ body {
    -ms-transition: background-color 0.25s linear;
 }
 
+.btn:hover {
+   background-color: #999;
+}
+
 .number-btn:active,
 .number-btn.active {
    background-color: #26A65B;
@@ -78,11 +82,14 @@ body {
 .operator-btn,
 .cancel-btn,
 .backspace-btn,
-.eql-btn {
+.eql-btn,
+.toggle-neg-btn {
    background-color: #CCC;
 }
 .operator-btn:active,
-.operator-btn.active {
+.operator-btn.active,
+.toggle-neg-btn:active,
+.toggle-neg-btn.active {
    background-color: #22A7F0;
 }
 
