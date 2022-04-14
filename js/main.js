@@ -148,6 +148,7 @@ function InitKeyboardSupport(){
       if(btns[i].innerText == "C") buttons["Delete"] = btns[i];
       if(btns[i].innerText == "←") buttons["Backspace"] = btns[i];
       if(btns[i].innerText == "=") buttons["Enter"] = btns[i];
+      if(btns[i].innerText == "+/-") buttons["F9"] = btns[i];
       if(btns[i].innerText == "×") {
          buttons["×"] = btns[i];
          buttons["*"] = btns[i];
@@ -201,6 +202,10 @@ document.addEventListener('keydown', function(e) {
          OperatorClick(e, "÷");
          buttons[e.key].classList.add("active");
          break;
+      case "F9":
+         ToggleNegative();
+         buttons["F9"].classList.add("active");
+         break;
       default:
          return;
     }
@@ -227,6 +232,9 @@ document.addEventListener('keyup', function(e) {
          break;
       case "×":
          buttons["×"].classList.remove("active");
+         break;
+      case "F9":
+         buttons["F9"].classList.remove("active");
          break;
       default:
          break;
